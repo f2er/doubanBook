@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link href="http://ks.xmf2e.com/assets/css/ks.min.css" rel="stylesheet"/>
+        <link href="static/css/edit.css" rel="stylesheet"/>
+        <style>
+            header{
+                background:rgba(0,0,0,0.8);
+                height:40px;
+                color:#fff;
+                width:100%;
+                position:fixed;
+                left:0;
+                top:0;
+                text-align:center;
+                line-height:40px;
+                font-size:16px;
+                font-family:"microsoft yahei"
+            }
+            header a{ font-size:16px; color:#f00;margin-left:10px;}
+            header a:hover{ color:#fff; text-decoration: none;}
+            .douban_shelf{ width:1000px;margin:0 auto;}
+            .douban_shelf  .ks_graphic_art{ float: left;width:380px;height:200px;
+                padding-left:120px;
+            }
+            .douban_shelf  .ks_img{ margin-left:-120px;}
+            .douban_shelf .ks_img img{ border:none;}
+        </style>
+        <title>豆瓣书单</title>
+    </head>
+    <body>
+    <header>
+        <h1>情封豆瓣书单<a href="http://weibo.com/f2er/profile?rightmod=1&wvr=5&mod=personinfo" target="_blank" title="情封微薄" class="icon-sina-weibo"></a> </h1>
+    </header>
+    <script type="text/x-handlebars">
+        <!--douban_shelf-->
+        <div class="douban_shelf clearfix">
+            {{#each App.booksController}}
+            <!--ks_graphic-->
+            <div class="ks_graphic ks_graphic_art clearfix">
+                <a {{bindAttr href="book_source"}} class="ks_img" target="_blank"><img {{bindAttr src="book_avatar"}}/></a>
+                <h4 class="ks_title"><a {{bindAttr href="book_source"}} target="_blank">{{book_title}}</a></h4>
+                <div class="ks_content">
+                    <p>作者：{{book_author}}</p>
+                    <p>价格：{{book_price}}</p>
+                    <p>标签：{{book_tag}}</p>
+                </div>
+            </div>
+            <!--/ks_graphic-->
+            {{/each}}
+        </div>
+        <!--/douban_shelf-->
+    </script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="static/js/handlebars-1.0.0.beta.6.js"></script>
+    <script src="static/js/ember-1.0.pre.min.js"></script>
+    <script src="static/js/app.js"></script>
+    </body>
+</html>
